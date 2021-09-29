@@ -1,160 +1,98 @@
-# This is a word game
+#!/usr/bin/python3
+# Hangman game
+
 import random
 
 
-def print_scaffold(guesses, wd): # prints the scaffold
-		if (guesses == 0):
-				print "_________"
-				print "|	 |"
-				print "|"
-				print "|"
-				print "|"
-				print "|"
-				print "|________"
-		elif (guesses == 1):
-				print "_________"
-				print "|	 |"
-				print "|	 O"
-				print "|"
-				print "|"
-				print "|"
-				print "|________"
-		elif (guesses == 2):
-				print "_________"
-				print "|	 |"
-				print "|	 O"
-				print "|	 |"
-				print "|	 |"
-				print "|"
-				print "|________"
-		elif (guesses == 3):
-				print "_________"
-				print "|	 |"
-				print "|	 O"
-				print "|	\|"
-				print "|	 |"
-				print "|"
-				print "|________"
-		elif (guesses == 4):
-				print "_________"
-				print "|	 |"
-				print "|	 O"
-				print "|	\|/"
-				print "|	 |"
-				print "|"
-				print "|________"
-		elif (guesses == 5):
-				print "_________"
-				print "|	 |"
-				print "|	 O"
-				print "|	\|/"
-				print "|	 |"
-				print "|	/ "
-				print "|________"
-		elif (guesses == 6):
-				print "_________"
-				print "|	 |"
-				print "|	 O"
-				print "|	\|/"
-				print "|	 |"
-				print "|	/ \ "
-				print "|________"
-				print "\n"
-				print "The word was %s." %wd
-				print "\n"
-				print "\nYOU LOSE! TRY AGAIN!"
-				print "\nWould you like to play again, type 1 for yes or 2 for no?"
-				again = str(raw_input("> "))
-				again = again.lower()
-				if again == "1":
-				  hangMan()
-				return
+class HangMan(object):
+    # Hangman game
+    hang = []
+    hang.append(' +---+')
+    hang.append(' |   |')
+    hang.append('     |')
+    hang.append('     |')
+    hang.append('     |')
+    hang.append('     |')
+    hang.append('=======')
 
-def selectWord():
-	file = open('FREQ')
-	words = file.readlines() 
-	myword = 'a'
-	while len(myword) < 4: # makes sure word is at least 4 letters long
-	  myword = random.choice(words)
-  	myword = str(myword).strip('[]')
-  	myword = str(myword).strip("''")
-  	myword = str(myword).strip("\n")
-  	myword = str(myword).strip("\r")
-	myword = myword.lower()
-	return myword
+    man = {}
+    man[0] = [' 0   |']
+    man[1] = [' 0   |', ' |   |']
+    man[2] = [' 0   |', '/|   |']
+    man[3] = [' 0   |', '/|\\  |']
+    man[4] = [' 0   |', '/|\\  |', '/    |']
+    man[5] = [' 0   |', '/|\\  |', '/ \\  |']
 
+    pics = []
 
-def hangMan():
-  guesses = 0					
-  word = selectWord()				
-  word_list = list(word)	
-  blanks = "_"*len(word)	
-  blanks_list = list(blanks) 
-  new_blanks_list = list(blanks)
-  guess_list = []
-  
-  print "Let's play hangman!\n"
-  print_scaffold(guesses, word)
-  print "\n"
-  print "" + ' '.join(blanks_list)
-  print "\n"
-  print "Guess a letter.\n"
-  
-  while guesses < 6:
-  
-  		guess = str(raw_input("> "))
-  		guess = guess.lower()
-  		
-  		if len(guess) > 1:
-  				print "Stop cheating! Enter one letter at time."
-  		elif guess == "":
-  				print "Don't you want to play? Enter one letter at a time."
-  		elif guess in guess_list:
-  				print "You already guessed that letter! Here is what you've guessed:"
-  				print ' '.join(guess_list)
-  		else:
-  				guess_list.append(guess)
-  				i = 0
-  				while i < len(word):
-  						if guess == word[i]:
-  								new_blanks_list[i] = word_list[i]
-  						i = i+1
-  
-  				if new_blanks_list == blanks_list:
-  						print "Your letter isn't here."
-  						guesses = guesses + 1
-  						print_scaffold(guesses, word)
-  						
-  						if guesses < 6:
-  								print "Guess again."
-  								print ' '.join(blanks_list)
-  						
-  				elif word_list != blanks_list:
-  						
-  						blanks_list = new_blanks_list[:]
-  						print ' '.join(blanks_list)
-  						
-  						if word_list == blanks_list:
-  						  print "\nYOU WIN! Here is your prize:"
-  						  print "\n"
-  						  print "Would you like to play again?"
-  						  print "Type 1 for yes or 2 for no."
-  						  again = str(raw_input("> "))
-  						  if again == "1":
-  						    hangMan()
-  						  quit()
-  						
-  						else:
-  								print "Great guess! Guess another!"
-												
-hangMan()
+    words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
+crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
+mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
+rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger
+toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
+
+    infStr = '_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\''
+
+    def __init__(self, *args, **kwargs):
+        i, j = 2, 0
+        self.pics.append(self.hang[:])
+        for ls in self.man.values():
+            pic, j = self.hang[:], 0
+            for m in ls:
+                pic[i + j] = m
+                j += 1
+            self.pics.append(pic)
+
+    def pickWord(self):
+        return self.words[random.randint(0, len(self.words) - 1)]
+
+    def printPic(self, idx, wordLen):
+        for line in self.pics[idx]:
+            print(line)
+
+    def askAndEvaluate(self, word, result, missed):
+        guess = input()
+        if guess == None or len(guess) != 1 or (guess in result) or (guess in missed):
+            return None, False
+        i = 0
+        right = guess in word
+        for c in word:
+            if c == guess:
+                result[i] = c
+            i += 1
+        return guess, right
+
+    def info(self, info):
+        ln = len(self.infStr)
+        print(self.infStr[:-3])
+        print(info)
+        print(self.infStr[3:])
+
+    def start(self):
+        print('Welcome to Hangman !')
+        word = list(self.pickWord())
+        result = list('*' * len(word))
+        print('The word is: ', result)
+        success, i, missed = False, 0, []
+        while i < len(self.pics) - 1:
+            print('Guess the word: ', end='')
+            guess, right = self.askAndEvaluate(word, result, missed)
+            if guess == None:
+                print('You\'ve already entered this character.')
+                continue
+            print(''.join(result))
+            if result == word:
+                self.info('Congratulations ! You\'ve just saved a life !')
+                success = True
+                break
+            if not right:
+                missed.append(guess)
+                i += 1
+            self.printPic(i, len(word))
+            print('Missed characters: ', missed)
+
+        if not success:
+            self.info('The word was \'' + ''.join(word) + '\' ! You\'ve just killed a man, yo !')
 
 
-
-	
-
-
-
-
-
-
+a = HangMan().start()
