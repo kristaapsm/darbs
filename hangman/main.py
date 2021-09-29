@@ -3,9 +3,10 @@
 
 import random
 
-
+# kārātuves zīmējums
 class HangMan(object):
     # Hangman game
+    #hang variable visu apvieno kopā lai izveidotu karātuves
     hang = []
     hang.append(' +---+')
     hang.append(' |   |')
@@ -14,7 +15,7 @@ class HangMan(object):
     hang.append('     |')
     hang.append('     |')
     hang.append('=======')
-
+#man variable izveido cilvēciņu
     man = {}
     man[0] = [' 0   |']
     man[1] = [' 0   |', ' |   |']
@@ -24,7 +25,7 @@ class HangMan(object):
     man[5] = [' 0   |', '/|\\  |', '/ \\  |']
 
     pics = []
-
+# words variable ir vārdu kopums no kura paņem random vārdu un to izmanto priekš spēles
     words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
 crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
 mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
@@ -42,7 +43,7 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
                 pic[i + j] = m
                 j += 1
             self.pics.append(pic)
-
+    # izvēlas random vārdu
     def pickWord(self):
         return self.words[random.randint(0, len(self.words) - 1)]
 
@@ -84,6 +85,7 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
             if result == word:
                 self.info('Congratulations ! You\'ve just saved a life !')
                 success = True
+                print(result)
                 break
             if not right:
                 missed.append(guess)
