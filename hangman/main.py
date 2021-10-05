@@ -2,11 +2,13 @@
 # Hangman game
 
 import logging
-# imports prieksh db
-import mysql.connector
 # imports prieksh koda
 import random
-from datetime import date
+import configparser
+
+
+config = configparser.ConfigParser()
+config.read('./config.ini')
 
 # žurnalēšanas komandrinda
 logging.basicConfig(filename='hangman_log.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
@@ -96,6 +98,7 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
             print(''.join(result))
             if result == word:
                 self.info('Congratulations ! You\'ve just saved a life !')
+                logging.info('Player won ')
                 success = True
                 print(result)
                 break
@@ -106,6 +109,7 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
             print('Missed characters: ', missed)
 
         if not success:
+            logging.info('Player lost')
             self.info('The word was \'' + ''.join(word) + '\' ! You\'ve just killed a man, yo !')
 
 
