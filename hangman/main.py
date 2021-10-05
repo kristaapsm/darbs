@@ -6,11 +6,11 @@ import logging
 import random
 import configparser
 
-
+# Config.ini inicalizēšana
 config = configparser.ConfigParser()
 config.read('./config.ini')
 
-# žurnalēšanas komandrinda
+# Žurnalizēšanas kommandrinda
 logging.basicConfig(filename='hangman_log.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 
@@ -65,7 +65,8 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
 
     def askAndEvaluate(self, word, result, missed):
         guess = input()
-        logging.info('Player chose letter '+  guess)
+        #
+        logging.info('Player chose letter ' + guess)
         if guess == None or len(guess) != 1 or (guess in result) or (guess in missed):
             return None, False
         i = 0
@@ -97,8 +98,9 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
                 continue
             print(''.join(result))
             if result == word:
+                vards = ''.join(word)
+                logging.info('Player won! The word was he guessed was - ' + vards)
                 self.info('Congratulations ! You\'ve just saved a life !')
-                logging.info('Player won ')
                 success = True
                 print(result)
                 break
@@ -109,7 +111,8 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
             print('Missed characters: ', missed)
 
         if not success:
-            logging.info('Player lost')
+            vards = ''.join(word)
+            logging.info('Player lost, player had to guess the word - ' + vards)
             self.info('The word was \'' + ''.join(word) + '\' ! You\'ve just killed a man, yo !')
 
 

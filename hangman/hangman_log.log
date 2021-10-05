@@ -1,27 +1,27 @@
 DEBUG:root:This message should go to the log file
 INFO:root:So should this
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:*******************************NEW GAME***********************************
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:*******************************NEW GAME***********************************
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:***NEW GAME***
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:***NEW GAME***
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:***NEW GAME***
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:***NEW GAME***
 WARNING:root:And this, too
-ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+ERROR:root:And non-ASCII stuff, too, like ï¿½resund and Malmï¿½
 INFO:root:***NEW GAME***
 WARNING:root:And this, too
 INFO:root:***NEW GAME***
@@ -85,3 +85,48 @@ INFO:root:***NEW GAME***
 2021-10-05 17:28:47,506 Player chose letter b
 2021-10-05 17:28:49,282 Player chose letter i
 2021-10-05 17:28:49,282 Player lost
+2021-10-05 19:49:06,923 ***NEW GAME***
+2021-10-05 19:49:42,267 Player chose letter a
+2021-10-05 19:49:43,651 Player chose letter e
+2021-10-05 19:49:47,609 Player chose letter g
+2021-10-05 19:49:48,136 Player chose letter l
+2021-10-05 19:49:48,136 Player won 
+2021-10-05 19:50:31,323 ***NEW GAME***
+2021-10-05 19:50:32,497 Player chose letter d
+2021-10-05 19:50:33,551 Player chose letter a
+2021-10-05 19:50:34,371 Player chose letter n
+2021-10-05 19:50:35,171 Player chose letter t
+2021-10-05 19:50:35,701 Player chose letter r
+2021-10-05 19:50:37,989 Player chose letter t
+2021-10-05 19:50:41,346 Player chose letter c
+2021-10-05 19:50:43,911 Player chose letter m
+2021-10-05 19:51:25,038 ***NEW GAME***
+2021-10-05 19:51:26,716 Player chose letter a
+2021-10-05 19:51:28,313 Player chose letter e
+2021-10-05 19:51:29,196 Player chose letter b
+2021-10-05 19:51:30,429 Player chose letter l
+2021-10-05 19:51:31,735 Player chose letter r
+2021-10-05 19:51:32,608 Player chose letter i
+2021-10-05 19:51:34,158 Player chose letter h
+2021-10-05 19:51:35,378 Player chose letter n
+2021-10-05 19:51:36,149 Player chose letter o
+2021-10-05 19:51:36,149 The word was rhino
+2021-10-05 19:51:36,149 Player won 
+2021-10-05 19:52:45,433 ***NEW GAME***
+2021-10-05 19:52:47,261 Player chose letter q
+2021-10-05 19:52:48,475 Player chose letter w
+2021-10-05 19:52:48,983 Player chose letter e
+2021-10-05 19:52:49,571 Player chose letter r
+2021-10-05 19:52:50,064 Player chose letter t
+2021-10-05 19:52:50,609 Player chose letter y
+2021-10-05 19:52:51,155 Player chose letter u
+2021-10-05 19:52:51,690 Player chose letter i
+2021-10-05 19:52:51,690 Player lost, player had to guess donkey
+2021-10-05 19:53:17,646 ***NEW GAME***
+2021-10-05 19:53:18,859 Player chose letter z
+2021-10-05 19:53:19,198 Player chose letter x
+2021-10-05 19:53:19,588 Player chose letter c
+2021-10-05 19:53:20,032 Player chose letter v
+2021-10-05 19:53:20,498 Player chose letter b
+2021-10-05 19:53:20,941 Player chose letter n
+2021-10-05 19:53:20,941 Player lost, player had to guess the word - whale
