@@ -1,15 +1,60 @@
 #!/usr/bin/python3
 # Hangman game
 
-import random , configparser
+#Imports priekš žurnalēšanas
 
-config = configparser.ConfigParser()
-config.read("./config.ini")
-#fps =  int(config['Default']['fps'])
-mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
-mysql_config_mysql_db = config.get('mysql_config', 'mysql_db')
-mysql_config_mysql_user = config.get('mysql_config', 'mysql_user')
-mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
+import logging
+import logging.config
+#imports prieksh db
+import mysql.connector
+#imports prieksh koda
+import random
+# import lai varētu nolasīt žurnalēšanas info
+import yaml
+
+from configparser import ConfigParser
+from mysql.connector import Error
+
+
+# Loading logging configuration
+with open('./log_worker.yaml', 'r') as stream:
+    config = yaml.safe_load(stream)
+
+logging.config.dictConfig(config)
+
+# Creating logger
+logger = logging.getLogger('root')
+
+logger.info('Asteroid processing service')
+
+# Initiating and reading config values
+logger.info('Loading configuration from file')
+
+try:
+	config = ConfigParser()
+	config.read('config.ini')
+
+	mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
+	mysql_config_mysql_db = config.get('mysql_config', 'mysql_db')
+	mysql_config_mysql_user = config.get('mysql_config', 'mysql_user')
+	mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
+
+except:
+	logger.exception('')
+logger.info('DONE')
+
+# default value datubāzei
+connection = None
+connected = False
+
+
+# Inicializē datubāzi
+def init_db():
+	global connection
+	connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db, user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+
+init_db()
+
 
 
 # kārātuves zīmējums
