@@ -1,0 +1,48 @@
+DEBUG:root:This message should go to the log file
+INFO:root:So should this
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:*******************************NEW GAME***********************************
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:*******************************NEW GAME***********************************
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:***NEW GAME***
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:***NEW GAME***
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:***NEW GAME***
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:***NEW GAME***
+WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
+INFO:root:***NEW GAME***
+WARNING:root:And this, too
+INFO:root:***NEW GAME***
+2021-10-05 15:54:01,425 And this, too
+2021-10-05 15:54:01,427 ***NEW GAME***
+2021-10-05 15:54:23,891 And this, too
+2021-10-05 15:54:23,891 ***NEW GAME***
+2021-10-05 15:54:52,448 And this, too
+2021-10-05 15:54:52,448 ***NEW GAME***
+2021-10-05 15:54:52,448 GAME STARTED AT
+2021-10-05 15:57:11,004 ***NEW GAME***
+2021-10-05 15:57:48,052 ***NEW GAME***
+2021-10-05 17:07:47,643 ***NEW GAME***
+2021-10-05 17:08:07,561 ***NEW GAME***
+2021-10-05 17:08:32,734 ***NEW GAME***
+2021-10-05 17:09:16,511 ***NEW GAME***
+2021-10-05 17:09:39,856 ***NEW GAME***
+2021-10-05 17:09:42,299 Player chose letter d
+2021-10-05 17:09:43,256 Player chose letter a
+2021-10-05 17:09:43,985 Player chose letter b
+2021-10-05 17:09:44,606 Player chose letter c
+2021-10-05 17:09:45,177 Player chose letter d
+2021-10-05 17:09:45,627 Player chose letter e
+2021-10-05 17:09:47,484 Player chose letter g
