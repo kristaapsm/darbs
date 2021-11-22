@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="darba datubāze" uuid="71a79dce-d3b8-465d-b492-17f6fcd4a3d9">
+    <data-source name="darbs@localhost" uuid="c7d192fc-be6b-4965-b55b-f6578f4b10d1">
       <database-info product="MariaDB" version="10.6.5-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.6.0" dbms="MARIADB" exact-version="10.6.5" exact-driver-version="2.6">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>

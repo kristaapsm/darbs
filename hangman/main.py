@@ -22,8 +22,6 @@ mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
 # Žurnalizēšanas kommandrinda
 logging.basicConfig(filename='hangman_log.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 
-
-####################################
 connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
                                     user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
 
@@ -160,3 +158,10 @@ class HangMan(object):
 
 
 a = HangMan().start()
+
+mycursor.execute(
+    "INSERT INTO `data` (`name`, `score`,`guesses`) VALUES ('" + str(name) + "','" + str(score) + "','" + str(number_of_guesses) + "'")
+
+connection.commit()
+
+

@@ -1,0 +1,1 @@
+ALTER TABLE min_vardi ADD COLUMN status VARCHAR(25) NOT NULL;
