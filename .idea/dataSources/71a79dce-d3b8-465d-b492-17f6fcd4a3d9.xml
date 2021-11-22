@@ -1049,19 +1049,35 @@
     <table id="335" parent="2" name="test"/>
     <table id="336" parent="2" name="test1"/>
     <table id="337" parent="2" name="test2"/>
-    <column id="338" parent="335" name="PersonID">
+    <table id="338" parent="2" name="users"/>
+    <column id="339" parent="335" name="PersonID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="336" name="PersonID">
+    <column id="340" parent="336" name="PersonID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="337" name="PersonID">
+    <column id="341" parent="337" name="PersonID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="342" parent="338" name="user_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="343" parent="338" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="344" parent="338" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
   </database-model>

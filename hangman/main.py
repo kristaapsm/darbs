@@ -2,16 +2,64 @@
 # Hangman game
 
 import logging
+import mysql.connector
 # imports prieksh koda
 import random
 import configparser
+######
+from mysql.connector import Error
 
+
+import time
+
+start_time = time.monotonic()
+
+
+
+########
 # Config.ini inicalizēšana
 config = configparser.ConfigParser()
 config.read('./config.ini')
+mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
+mysql_config_mysql_db = config.get('mysql_config', 'mysql_db')
+mysql_config_mysql_user = config.get('mysql_config', 'mysql_user')
+mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
 
 # Žurnalizēšanas kommandrinda
 logging.basicConfig(filename='hangman_log.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
+
+
+####################################
+connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
+                                    user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+
+mycursor = connection.cursor()
+
+mycursor.execute('SELECT * FROM users')
+
+users = mycursor.fetchall()
+
+for users in users:
+    print(users)
+
+"""
+ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
+crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
+mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
+rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger
+toad trout turkey turtle weasel whale wolf wombat zebra
+"""
+
+
+
+
+mycursor.execute('SELECT * FROM min_vardi')
+min = mycursor.fetchall()
+for users in users:
+    print(min)
+########################
+
+
 
 
 # kārātuves zīmējums
@@ -37,11 +85,7 @@ class HangMan(object):
 
     pics = []
     # words variable ir vārdu kopums no kura paņem random vārdu un to izmanto priekš spēles
-    words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
-crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
-mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
-rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger
-toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
+    words = '''ant cat'''.split()
 
     infStr = '_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\''
 
@@ -100,6 +144,15 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
             if result == word:
                 vards = ''.join(word)
                 logging.info('Player won! The word was he guessed was - ' + vards)
+                time_win = time.monotonic() - start_time
+                time_win = round(time_win, 2)
+                print('seconds: ', time_win)
+
+                mycursor.execute(
+                    "INSERT INTO `min_vardi` (`vardi`, `atrums`,`status`) VALUES ('" + str(vards) + "','" + str(
+                        time_win) + "','win' )")
+                connection.commit()
+
                 self.info('Congratulations ! You\'ve just saved a life !')
                 success = True
                 print(result)
@@ -113,6 +166,14 @@ toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
         if not success:
             vards = ''.join(word)
             logging.info('Player lost, player had to guess the word - ' + vards)
+            time_lose = time.monotonic() - start_time
+            time_lose = round(time_lose, 2)
+            mycursor.execute(
+                "INSERT INTO `min_vardi` (`vardi`, `atrums`,`status`) VALUES ('" + str(vards) + "','" + str(time_lose) + "','lose')")
+
+            connection.commit()
+
+
             self.info('The word was \'' + ''.join(word) + '\' ! You\'ve just killed a man, yo !')
 
 
