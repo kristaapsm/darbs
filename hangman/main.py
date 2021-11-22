@@ -3,18 +3,12 @@
 
 import logging
 import mysql.connector
-# imports prieksh koda
 import random
 import configparser
-######
-from mysql.connector import Error
-
-
 import time
 
+# Sāk laika atskaiti kad tiek palaista programma
 start_time = time.monotonic()
-
-
 
 ########
 # Config.ini inicalizēšana
@@ -35,12 +29,6 @@ connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysq
 
 mycursor = connection.cursor()
 
-mycursor.execute('SELECT * FROM users')
-
-users = mycursor.fetchall()
-
-for users in users:
-    print(users)
 
 """
 ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
@@ -52,12 +40,6 @@ toad trout turkey turtle weasel whale wolf wombat zebra
 
 
 
-
-mycursor.execute('SELECT * FROM min_vardi')
-min = mycursor.fetchall()
-for users in users:
-    print(min)
-########################
 
 
 
