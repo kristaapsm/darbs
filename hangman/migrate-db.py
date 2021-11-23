@@ -10,7 +10,7 @@ from configparser import ConfigParser
 from mysql.connector import Error
 
 # Loading logging configuration
-with open('log/log_migrate_db.yaml', 'r') as stream:
+with open('log_migrate_db.yaml', 'r') as stream:
     config = yaml.safe_load(stream)
 
 logging.config.dictConfig(config)
