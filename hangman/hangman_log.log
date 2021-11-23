@@ -401,3 +401,19 @@
 2021-11-22 20:29:08,985 Player chose letter t
 2021-11-22 20:29:08,985 Player won! The word was he guessed was - cat
 2021-11-23 16:17:28,001 ***NEW GAME***
+2021-11-23 18:46:16,499 new_auth_plugin: mysql_native_password
+2021-11-23 18:46:22,402 new_auth_plugin: mysql_native_password
+2021-11-23 18:50:29,896 new_auth_plugin: mysql_native_password
+2021-11-23 18:50:29,896 ***NEW GAME***
+2021-11-23 18:50:31,770 Player chose letter c
+2021-11-23 18:50:32,393 Player chose letter a
+2021-11-23 18:50:32,896 Player chose letter t
+2021-11-23 18:50:34,713 Player chose letter n
+2021-11-23 18:50:34,713 Player won! The word was he guessed was - ant
+2021-11-23 18:50:58,127 new_auth_plugin: mysql_native_password
+2021-11-23 18:50:58,127 ***NEW GAME***
+2021-11-23 18:51:05,022 Player chose letter c
+2021-11-23 18:51:05,833 Player chose letter a
+2021-11-23 18:51:06,562 Player chose letter t
+2021-11-23 18:51:07,823 Player chose letter n
+2021-11-23 18:51:07,823 Player won! The word was he guessed was - ant

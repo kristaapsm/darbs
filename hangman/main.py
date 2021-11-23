@@ -158,9 +158,5 @@ class HangMan(object):
 
 a = HangMan().start()
 
-mycursor.execute(
-    "INSERT INTO `data` (`name`, `score`,`guesses`) VALUES ('" + str(name) + "','" + str(score) + "','" + str(number_of_guesses) + "'")
-
-connection.commit()
 
 

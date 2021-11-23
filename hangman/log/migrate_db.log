@@ -12,3 +12,24 @@
 2021-11-23 18:23:11,235 - INFO - migrate-db : Connected to MySQL database. MySQL Server version on 5.5.5-10.6.5-MariaDB
 2021-11-23 18:23:11,237 - INFO - migrate-db : Migrations table exists
 2021-11-23 18:23:11,238 - INFO - migrate-db : No migrations to execute
+2021-11-23 18:49:17,044 - INFO - migrate-db : Hangman DB migration service
+2021-11-23 18:49:17,044 - INFO - migrate-db : Loading configuration from file
+2021-11-23 18:49:17,044 - INFO - migrate-db : DONE
+2021-11-23 18:50:17,106 - INFO - migrate-db : Hangman DB migration service
+2021-11-23 18:50:17,106 - INFO - migrate-db : Loading configuration from file
+2021-11-23 18:50:17,106 - INFO - migrate-db : DONE
+2021-11-23 18:50:17,121 - INFO - migrate-db : Connecting to MySQL DB
+2021-11-23 18:50:17,121 - INFO - migrate-db : Connected to MySQL database. MySQL Server version on 5.5.5-10.6.4-MariaDB
+2021-11-23 18:50:17,325 - INFO - migrate-db : Executing: 20210924203000-initial-db-struct.sql
+2021-11-23 18:50:17,356 - INFO - migrate-db : None
+2021-11-23 18:50:17,371 - INFO - migrate-db : OK
+2021-11-23 18:50:17,387 - INFO - migrate-db : Executing: 20210925134800-add-date-to-ast-table.sql
+2021-11-23 18:50:17,434 - INFO - migrate-db : None
+2021-11-23 18:50:17,434 - INFO - migrate-db : OK
+2021-11-23 18:50:25,061 - INFO - migrate-db : Hangman DB migration service
+2021-11-23 18:50:25,061 - INFO - migrate-db : Loading configuration from file
+2021-11-23 18:50:25,061 - INFO - migrate-db : DONE
+2021-11-23 18:50:25,061 - INFO - migrate-db : Connecting to MySQL DB
+2021-11-23 18:50:25,077 - INFO - migrate-db : Connected to MySQL database. MySQL Server version on 5.5.5-10.6.4-MariaDB
+2021-11-23 18:50:25,092 - INFO - migrate-db : Migrations table exists
+2021-11-23 18:50:25,092 - INFO - migrate-db : No migrations to execute
