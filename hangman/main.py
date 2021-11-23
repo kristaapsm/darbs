@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 # Hangman game
 
+
+# Vajdzīgās bibliotēkas
 import logging
 import mysql.connector
 import random
 import configparser
 import time
+
 # Sāk laika atskaiti kad tiek palaista programma
 start_time = time.monotonic()
 
-########
-# Config.ini inicalizēšana
+# Config.ini inicializēšana
 config = configparser.ConfigParser()
 config.read('./config.ini')
 mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
@@ -22,28 +24,13 @@ mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
 logging.basicConfig(filename='hangman_log.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
-                                    user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+                                     user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
 
 mycursor = connection.cursor()
 
 
-"""
-ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
-crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
-mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
-rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger
-toad trout turkey turtle weasel whale wolf wombat zebra
-"""
-
-
-
-
-
-
-
 # kārātuves zīmējums
 class HangMan(object):
-    # Hangman game
     # hang variable visu apvieno kopā lai izveidotu karātuves
     hang = []
     hang.append(' +---+')
@@ -64,7 +51,11 @@ class HangMan(object):
 
     pics = []
     # words variable ir vārdu kopums no kura paņem random vārdu un to izmanto priekš spēles
-    words = '''ant cat'''.split()
+    words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
+crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
+mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
+rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger
+toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
 
     infStr = '_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\''
 
@@ -127,6 +118,7 @@ class HangMan(object):
                 time_win = round(time_win, 2)
                 print('seconds: ', time_win)
 
+                # Pievieno vārdu tā uzminēšanas laiku un vai uzvarēja vai zaudēja iekša datubāzēs
                 mycursor.execute(
                     "INSERT INTO `min_vardi` (`vardi`, `atrums`,`status`) VALUES ('" + str(vards) + "','" + str(
                         time_win) + "','win' )")
@@ -145,18 +137,19 @@ class HangMan(object):
         if not success:
             vards = ''.join(word)
             logging.info('Player lost, player had to guess the word - ' + vards)
+            # Izrēķina pildīšanas laiku
             time_lose = time.monotonic() - start_time
+            # Noapaļo laiku
             time_lose = round(time_lose, 2)
+
+            # Pievieno vārdu tā uzminēšanas laiku un vai uzvarēja vai zaudēja iekša datubāzēs
             mycursor.execute(
-                "INSERT INTO `min_vardi` (`vardi`, `atrums`,`status`) VALUES ('" + str(vards) + "','" + str(time_lose) + "','lose')")
+                "INSERT INTO `min_vardi` (`vardi`, `atrums`,`status`) VALUES ('" + str(vards) + "','" + str(
+                    time_lose) + "','lose')")
 
             connection.commit()
-
 
             self.info('The word was \'' + ''.join(word) + '\' ! You\'ve just killed a man, yo !')
 
 
 a = HangMan().start()
-
-
-
