@@ -6,7 +6,6 @@ import mysql.connector
 import random
 import configparser
 import time
-
 # Sāk laika atskaiti kad tiek palaista programma
 start_time = time.monotonic()
 
